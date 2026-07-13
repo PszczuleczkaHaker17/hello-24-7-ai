@@ -88,10 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Twoja recepcja nigdy nie śpi. AI odbiera połączenia, umawia wizyty i odciąża recepcjonistkę — 24 godziny na dobę.",
+          "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "AI Recepcja 24/7 — telefony i wizyty automatycznie" },
+      { name: "twitter:description", content: "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
