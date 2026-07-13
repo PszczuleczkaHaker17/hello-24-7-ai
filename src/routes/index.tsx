@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroReception from "@/assets/hero-reception.jpg";
-import demoPreview from "@/assets/demo-preview.jpg";
+
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const CTA_HREF = "#kontakt";
+const CTA_HREF = "https://calendly.com/antekrog1/15min";
 const CTA_LABEL = "Zarezerwuj 15 minut rozmowy";
 
 function LandingPage() {
@@ -46,6 +46,8 @@ function Nav() {
         </a>
         <a
           href={CTA_HREF}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden sm:inline-flex items-center bg-ink text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-medical-700 transition-colors"
         >
           {CTA_LABEL}
@@ -80,6 +82,8 @@ function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
             <a
               href={CTA_HREF}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
             >
               {CTA_LABEL}
@@ -329,24 +333,16 @@ function Demo() {
             dokładnie takiej, jaką odbędzie Twój przyszły pacjent.
           </p>
         </div>
-        <div className="aspect-video bg-ink rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl relative group">
-          <img
-            src={demoPreview}
-            alt="Podgląd rozmowy z asystentem"
-            width={1600}
-            height={900}
-            loading="lazy"
-            className="w-full h-full object-cover opacity-70"
-          />
-          <button
-            type="button"
-            aria-label="Odtwórz demo"
-            className="absolute inset-0 grid place-items-center"
+       <div className="aspect-video bg-ink rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            className="w-full h-full object-contain bg-black"
           >
-            <span className="size-20 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-              <span className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[18px] border-l-ink border-b-[12px] border-b-transparent ml-1" />
-            </span>
-          </button>
+            <source src="/Ai_klinika_final.mp4" type="video/mp4" />
+            Twoja przeglądarka nie obsługuje odtwarzania wideo.
+          </video>
         </div>
       </div>
     </section>
@@ -369,7 +365,7 @@ function Pricing() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-medical-600/15 text-medical-100 border border-medical-600/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-                Program wdrożeniowy · zostały [X] miejsca
+                Program wdrożeniowy · zostały 3 miejsca
               </div>
               <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Oferta dla pierwszych 3 klinik.
@@ -420,6 +416,8 @@ function Pricing() {
               </div>
               <a
                 href={CTA_HREF}
+                target="_blank"
+               rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center bg-medical-600 text-white py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 transition-all"
               >
                 {CTA_LABEL}
@@ -505,6 +503,8 @@ function FinalCta() {
         </p>
         <a
           href={CTA_HREF}
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center bg-ink text-white px-8 sm:px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl hover:bg-medical-600 transition-all shadow-xl shadow-ink/10"
         >
           {CTA_LABEL}
