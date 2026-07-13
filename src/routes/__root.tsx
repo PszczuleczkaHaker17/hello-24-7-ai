@@ -77,21 +77,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "AI Recepcja 24/7 — telefony i wizyty automatycznie" },
+      {
+        name: "description",
+        content:
+          "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni.",
+      },
+      { name: "author", content: "AI Recepcja 24/7" },
+      { property: "og:title", content: "AI Recepcja 24/7 — telefony i wizyty automatycznie" },
+      {
+        property: "og:description",
+        content:
+          "Twoja recepcja nigdy nie śpi. AI odbiera połączenia, umawia wizyty i odciąża recepcjonistkę — 24 godziny na dobę.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,

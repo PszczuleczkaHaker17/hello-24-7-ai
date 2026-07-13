@@ -1,24 +1,532 @@
 import { createFileRoute } from "@tanstack/react-router";
+import heroReception from "@/assets/hero-reception.jpg";
+import demoPreview from "@/assets/demo-preview.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  component: LandingPage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const CTA_HREF = "#kontakt";
+const CTA_LABEL = "Zarezerwuj 15 minut rozmowy";
+
+function LandingPage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="font-sans text-ink bg-white selection:bg-medical-600/20">
+      <Nav />
+      <main>
+        <Hero />
+        <LostPatients />
+        <Problem />
+        <Solution />
+        <Implementation />
+        <Benefits />
+        <Demo />
+        <Pricing />
+        <Faq />
+        <FinalCta />
+      </main>
+      <Footer />
     </div>
+  );
+}
+
+/* ---------------- NAV ---------------- */
+function Nav() {
+  return (
+    <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="relative inline-flex size-8 items-center justify-center rounded-lg bg-medical-600">
+            <span className="size-3.5 rounded-full bg-white" />
+            <span className="absolute inset-0 rounded-lg ring-4 ring-medical-600/20" />
+          </span>
+          <span className="font-display font-bold text-lg tracking-tight uppercase">
+            Recepcja&nbsp;AI
+          </span>
+        </a>
+        <a
+          href={CTA_HREF}
+          className="hidden sm:inline-flex items-center bg-ink text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-medical-700 transition-colors"
+        >
+          {CTA_LABEL}
+        </a>
+      </div>
+    </nav>
+  );
+}
+
+/* ---------------- HERO ---------------- */
+function Hero() {
+  return (
+    <header id="top" className="relative pt-16 lg:pt-24 pb-24 lg:pb-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-[1.35fr_1fr] gap-12 items-center">
+        <div className="max-w-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-medical-50 text-medical-700 text-xs font-semibold tracking-wide mb-8 border border-medical-100">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-medical-600 opacity-60 animate-ping" />
+              <span className="relative inline-flex rounded-full size-2 bg-medical-600" />
+            </span>
+            Oferta wdrożeniowa dla pierwszych 3 klinik
+          </div>
+
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6">
+            Nie trać pacjentów przez <span className="text-medical-600">nieodebrane telefony.</span>
+          </h1>
+          <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
+            AI Recepcja 24/7 automatycznie odpowiada pacjentom, przekazuje informacje o usługach
+            i pomaga umawiać wizyty — nawet gdy recepcja jest zajęta lub zamknięta.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
+            <a
+              href={CTA_HREF}
+              className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
+            >
+              {CTA_LABEL}
+            </a>
+          </div>
+
+          <p className="mt-5 text-sm text-muted-foreground italic">
+            3 pierwsze kliniki otrzymują wdrożenie w specjalnej cenie.
+          </p>
+        </div>
+
+        <div className="relative hidden lg:block">
+          <div className="absolute -inset-6 bg-medical-50 rounded-[2rem] -z-10" />
+          <img
+            src={heroReception}
+            alt="Nowoczesna recepcja kliniki"
+            width={800}
+            height={1200}
+            className="rounded-[1.5rem] w-full h-[520px] object-cover shadow-2xl shadow-slate-300/40"
+          />
+          <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-100 p-4 flex items-center gap-3 w-64">
+            <span className="size-10 rounded-full bg-medical-50 grid place-items-center text-medical-600 font-bold">
+              24/7
+            </span>
+            <div>
+              <div className="text-sm font-semibold">Odbieramy zawsze</div>
+              <div className="text-xs text-muted-foreground">Nocą, w weekendy, w święta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ---------------- LOST PATIENTS (short bridge) ---------------- */
+function LostPatients() {
+  return (
+    <section aria-labelledby="lost-patients" className="py-16 lg:py-20 bg-surface border-y border-slate-100">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h2
+          id="lost-patients"
+          className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-5 text-balance"
+        >
+          Każdy nieodebrany telefon może oznaczać utraconego pacjenta.
+        </h2>
+        <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          Pacjenci często dzwonią po godzinach pracy albo wtedy, gdy recepcja jest zajęta. AI
+          Recepcja 24/7 odpowiada natychmiast i pomaga przeprowadzić ich do rezerwacji wizyty.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- PROBLEM ---------------- */
+function Problem() {
+  return (
+    <section aria-labelledby="problem" className="py-24 lg:py-28 bg-ink text-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2
+          id="problem"
+          className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-14 max-w-3xl leading-tight"
+        >
+          Każdy nieodebrany telefon to pacjent, który dzwoni do konkurencji.
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          <div className="space-y-8">
+            <div className="p-8 bg-white/5 rounded-3xl border border-white/10">
+              <span className="text-alert font-bold text-4xl sm:text-5xl mb-3 block">15–30%</span>
+              <p className="text-slate-300 text-base sm:text-lg">
+                Przeciętna klinika traci tyle telefonów po godzinach lub w trakcie przerwy. Tych
+                zapytań nie widać w żadnym raporcie.
+              </p>
+            </div>
+            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed">
+              Przy średniej wartości wizyty 300–800 zł to realnie{" "}
+              <span className="text-white font-semibold">kilka tysięcy złotych miesięcznie</span>,
+              które znikają bez śladu.
+            </p>
+          </div>
+          <div className="bg-alert/10 p-8 sm:p-12 rounded-3xl border border-alert/20 flex flex-col justify-center">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4">Prosta zasada:</h3>
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed">
+              Pacjent, który nie dodzwoni się raz, zwykle nie próbuje drugi raz. Po prostu klika
+              w następną pozycję w Google i umawia się gdzie indziej.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- SOLUTION ---------------- */
+function Solution() {
+  const cards = [
+    {
+      title: "Więcej obsłużonych pacjentów",
+      body: "Odbieramy każde połączenie i odpowiadamy na pytania o usługi, cennik i godziny — także w nocy, w weekendy i w święta.",
+      icon: <div className="size-6 border-2 border-current rounded-full" />,
+    },
+    {
+      title: "Automatyczne umawianie wizyt",
+      body: "Zapisujemy pacjentów bezpośrednio w Twoim Google Calendar. Rano widzisz gotowy grafik na dziś.",
+      icon: <div className="size-6 border-2 border-current rounded-md" />,
+    },
+    {
+      title: "Mniej pracy recepcji",
+      body: "Recepcjonistka przestaje być call center i skupia się na pacjencie na miejscu. Trudniejsze sprawy trafiają do niej z notatką.",
+      icon: <div className="size-6 border-2 border-current rounded-tr-xl" />,
+    },
+  ];
+
+  return (
+    <section aria-labelledby="solution" className="py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <h2 id="solution" className="font-display text-3xl lg:text-4xl font-bold mb-5 tracking-tight">
+            Prosta usługa, która przejmuje najbardziej czasochłonną część recepcji
+          </h2>
+          <p className="text-muted-foreground text-lg">
+            Więcej zapisanych wizyt, mniej utraconych zapytań, spokojniejsza recepcja.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {cards.map((c) => (
+            <div
+              key={c.title}
+              className="group p-8 rounded-3xl border border-slate-100 bg-surface hover:bg-white hover:shadow-2xl hover:shadow-slate-200/60 transition-all"
+            >
+              <div className="size-12 bg-medical-600/10 text-medical-600 rounded-xl flex items-center justify-center mb-6">
+                {c.icon}
+              </div>
+              <h3 className="text-lg lg:text-xl font-bold mb-3">{c.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{c.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- IMPLEMENTATION ---------------- */
+function Implementation() {
+  const steps = [
+    {
+      n: "1",
+      title: "Rozmowa (15 min)",
+      body: "Poznajemy Twój cennik, godziny pracy i specyfikę kliniki.",
+    },
+    {
+      n: "2",
+      title: "Konfiguracja (3–5 dni)",
+      body: "Budujemy asystenta dopasowanego do Twojej kliniki. Ty nie ruszasz palcem.",
+    },
+    {
+      n: "3",
+      title: "Start",
+      body: "Asystent odbiera telefony, Ty widzisz efekty od razu w kalendarzu.",
+    },
+  ];
+
+  return (
+    <section aria-labelledby="implementation" className="py-24 bg-surface border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between md:items-end gap-6 mb-16 lg:mb-20">
+          <div>
+            <h2 id="implementation" className="font-display text-3xl lg:text-4xl font-bold mb-3 tracking-tight">
+              Wdrożenie w 5 dni.
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Zero pracy technicznej po Twojej stronie.
+            </p>
+          </div>
+          <div className="bg-white px-5 py-3 rounded-2xl shadow-sm border border-slate-200 w-fit">
+            <span className="text-medical-600 font-bold text-sm">
+              Wszystko dzieje się po naszej stronie.
+            </span>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-12">
+          {steps.map((s) => (
+            <div key={s.n} className="relative pt-8">
+              <span className="text-8xl font-black text-slate-200 absolute -top-4 -left-2 leading-none select-none">
+                {s.n}
+              </span>
+              <div className="relative z-10">
+                <h4 className="text-xl font-bold mb-2">{s.title}</h4>
+                <p className="text-muted-foreground leading-relaxed">{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- BENEFITS ---------------- */
+function Benefits() {
+  const items = [
+    "Więcej zapisanych wizyt — bo żaden telefon nie zostaje bez odpowiedzi.",
+    "Mniej obciążona recepcja — pracownik zajmuje się pacjentem, nie telefonem.",
+    "Obsługa poza godzinami pracy — pacjent umawia się o 21:00 w niedzielę, Ty widzisz to w kalendarzu.",
+    "Brak kosztu dodatkowego etatu — jeden abonament zamiast rekrutacji i szkolenia.",
+    "Spójna obsługa — asystent nigdy nie ma gorszego dnia i zawsze podaje aktualny cennik.",
+  ];
+  return (
+    <section aria-labelledby="benefits" className="py-24 lg:py-28">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 id="benefits" className="font-display text-3xl lg:text-4xl font-bold tracking-tight mb-14 text-center">
+          Co realnie zyskuje Twoja klinika
+        </h2>
+        <ul className="grid sm:grid-cols-2 gap-5">
+          {items.map((t) => (
+            <li
+              key={t}
+              className="flex gap-4 p-6 rounded-2xl border border-slate-100 bg-surface"
+            >
+              <span className="mt-1 size-6 shrink-0 rounded-full bg-medical-600 text-white grid place-items-center text-xs font-bold">
+                ✓
+              </span>
+              <span className="text-ink-soft leading-relaxed">{t}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- DEMO ---------------- */
+function Demo() {
+  return (
+    <section aria-labelledby="demo" className="py-24 lg:py-32 bg-surface border-y border-slate-100">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="text-center mb-12 lg:mb-14">
+          <h2 id="demo" className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
+            Zobacz, jak to wygląda w praktyce
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            To nie jest scenariusz reklamowy — to nagranie realnej rozmowy z asystentem,
+            dokładnie takiej, jaką odbędzie Twój przyszły pacjent.
+          </p>
+        </div>
+        <div className="aspect-video bg-ink rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl relative group">
+          <img
+            src={demoPreview}
+            alt="Podgląd rozmowy z asystentem"
+            width={1600}
+            height={900}
+            loading="lazy"
+            className="w-full h-full object-cover opacity-70"
+          />
+          <button
+            type="button"
+            aria-label="Odtwórz demo"
+            className="absolute inset-0 grid place-items-center"
+          >
+            <span className="size-20 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+              <span className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[18px] border-l-ink border-b-[12px] border-b-transparent ml-1" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- PRICING ---------------- */
+function Pricing() {
+  return (
+    <section id="kontakt" aria-labelledby="pricing" className="py-24 lg:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-14">
+          <h2 id="pricing" className="font-display text-3xl lg:text-4xl font-bold tracking-tight mb-4">
+            Jedna cena. Wszystkie funkcje.
+          </h2>
+          <p className="text-muted-foreground">Zero dopłat za funkcje premium.</p>
+        </div>
+
+        <div className="bg-ink rounded-[2rem] lg:rounded-[3rem] p-8 sm:p-12 lg:p-16 text-white">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-medical-600/15 text-medical-100 border border-medical-600/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                Program wdrożeniowy · zostały [X] miejsca
+              </div>
+              <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                Oferta dla pierwszych 3 klinik.
+              </h3>
+              <p className="text-slate-300 mb-8 leading-relaxed">
+                W zamian za opinię i case study po wdrożeniu przygotowaliśmy specjalne warunki.
+                Bez umowy długoterminowej — miesięczny okres wypowiedzenia.
+              </p>
+              <ul className="space-y-4 text-slate-200">
+                {[
+                  "Odbieranie połączeń 24/7, 7 dni w tygodniu",
+                  "Odpowiedzi na pytania o cennik i godziny otwarcia",
+                  "Umawianie wizyt bezpośrednio w Google Calendar",
+                  "Przekazywanie trudnych spraw do recepcji",
+                  "Wsparcie techniczne i aktualizacje asystenta",
+                ].map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <span className="mt-0.5 size-5 rounded-full bg-medical-600 grid place-items-center text-[10px] shrink-0">
+                      ✓
+                    </span>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white text-ink rounded-3xl p-8 sm:p-10">
+              <div className="mb-6 pb-6 border-b border-slate-100">
+                <span className="text-muted-foreground text-xs uppercase font-bold tracking-widest">
+                  Abonament
+                </span>
+                <div className="flex items-baseline gap-2 mt-2">
+                  <span className="text-5xl font-black">990 zł</span>
+                  <span className="text-muted-foreground">/ mies.</span>
+                </div>
+                <div className="mt-2 text-sm text-muted-foreground line-through">
+                  Standardowo 1290 zł / mies.
+                </div>
+              </div>
+              <div className="mb-8">
+                <div className="flex justify-between items-baseline mb-1">
+                  <span className="font-semibold">Wdrożenie (jednorazowo)</span>
+                  <span className="text-2xl font-bold text-medical-600">1490 zł</span>
+                </div>
+                <div className="text-sm text-muted-foreground line-through text-right">
+                  Standardowo 2490 zł
+                </div>
+              </div>
+              <a
+                href={CTA_HREF}
+                className="w-full inline-flex items-center justify-center bg-medical-600 text-white py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 transition-all"
+              >
+                {CTA_LABEL}
+              </a>
+              <p className="mt-4 text-xs text-muted-foreground text-center">
+                Bez umowy długoterminowej. Rezygnujesz, kiedy chcesz.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-10 text-sm text-slate-400 text-center">
+            Duża klinika lub sieć placówek? Napisz — przygotujemy indywidualną wycenę.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- FAQ ---------------- */
+function Faq() {
+  const items = [
+    {
+      q: "A co jeśli pacjent chce porozmawiać z człowiekiem?",
+      a: "Asystent w każdej chwili może przekazać rozmowę do recepcji. To narzędzie, które ją odciąża — nie zastępuje.",
+    },
+    {
+      q: "Czy to skomplikowane we wdrożeniu?",
+      a: "Nie. Ty podajesz cennik i godziny pracy, resztą zajmujemy się my. Zero pracy technicznej po Twojej stronie.",
+    },
+    {
+      q: "Czy muszę podpisywać długoterminową umowę?",
+      a: "Nie. Miesięczny okres wypowiedzenia — bez zobowiązań na 12 miesięcy.",
+    },
+    {
+      q: "Czy asystent poda pacjentowi błędne informacje?",
+      a: "Asystent korzysta wyłącznie z cennika i danych, które nam przekażesz. Nie zgaduje i nie improwizuje — a każdą trudniejszą sprawę przekazuje recepcji.",
+    },
+    {
+      q: "Ile kosztuje utrzymanie poza abonamentem?",
+      a: "Nic. Cena, którą widzisz, to cała cena. Bez ukrytych opłat za funkcje.",
+    },
+  ];
+
+  return (
+    <section aria-labelledby="faq" className="py-24 lg:py-28">
+      <div className="max-w-3xl mx-auto px-6">
+        <h2 id="faq" className="font-display text-3xl lg:text-4xl font-bold mb-12 text-center tracking-tight">
+          Częste pytania
+        </h2>
+        <div className="divide-y divide-slate-200 border-y border-slate-200">
+          {items.map((it) => (
+            <details key={it.q} className="group py-6">
+              <summary className="list-none flex justify-between items-start gap-6 cursor-pointer font-semibold text-ink">
+                {it.q}
+                <span className="text-medical-600 text-2xl leading-none group-open:rotate-45 transition-transform shrink-0">
+                  +
+                </span>
+              </summary>
+              <p className="mt-4 text-muted-foreground leading-relaxed">{it.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- FINAL CTA ---------------- */
+function FinalCta() {
+  return (
+    <section aria-labelledby="final-cta" className="py-24 lg:py-28 bg-surface border-t border-slate-200">
+      <div className="max-w-4xl mx-auto px-6 text-center">
+        <h2
+          id="final-cta"
+          className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-balance"
+        >
+          Każdy dzień zwłoki to nieodebrane telefony i utracone wizyty.
+        </h2>
+        <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+          Zarezerwuj 15-minutową rozmowę i sprawdź, czy Twoja klinika kwalifikuje się do programu
+          wdrożeniowego dla pierwszych 3 klinik.
+        </p>
+        <a
+          href={CTA_HREF}
+          className="inline-flex items-center justify-center bg-ink text-white px-8 sm:px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl hover:bg-medical-600 transition-all shadow-xl shadow-ink/10"
+        >
+          {CTA_LABEL}
+        </a>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- FOOTER ---------------- */
+function Footer() {
+  return (
+    <footer className="py-10 border-t border-slate-200 bg-white">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row gap-4 justify-between items-center text-sm text-muted-foreground">
+        <div className="flex items-center gap-2">
+          <span className="size-2 rounded-full bg-medical-600" />
+          <span className="font-display font-bold tracking-tight uppercase text-ink">
+            Recepcja&nbsp;AI
+          </span>
+        </div>
+        <span>© {new Date().getFullYear()} AI Recepcja 24/7. Wszelkie prawa zastrzeżone.</span>
+      </div>
+    </footer>
   );
 }
