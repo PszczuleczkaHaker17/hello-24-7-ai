@@ -370,6 +370,9 @@ function Pricing() {
               <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Oferta dla pierwszych 3 klinik.
               </h3>
+              <p className="text-medical-100 mb-4 leading-relaxed">
+                Cena 990 zł/mies. zostaje z Tobą na stałe — także po zakończeniu programu.
+              </p>
               <p className="text-slate-300 mb-8 leading-relaxed">
                 W zamian za opinię i case study po wdrożeniu przygotowaliśmy specjalne warunki.
                 Bez umowy długoterminowej — miesięczny okres wypowiedzenia.
