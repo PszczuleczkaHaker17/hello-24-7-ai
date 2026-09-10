@@ -370,6 +370,9 @@ function Pricing() {
               <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 Oferta dla pierwszych 3 klinik.
               </h3>
+              <p className="text-medical-100 mb-4 leading-relaxed">
+                Cena 990 zł/mies. zostaje z Tobą na stałe — także po zakończeniu programu.
+              </p>
               <p className="text-slate-300 mb-8 leading-relaxed">
                 W zamian za opinię i case study po wdrożeniu przygotowaliśmy specjalne warunki.
                 Bez umowy długoterminowej — miesięczny okres wypowiedzenia.
@@ -394,25 +397,35 @@ function Pricing() {
 
             <div className="bg-white text-ink rounded-3xl p-8 sm:p-10">
               <div className="mb-6 pb-6 border-b border-slate-100">
-                <span className="text-muted-foreground text-xs uppercase font-bold tracking-widest">
-                  Abonament
-                </span>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-muted-foreground text-xs uppercase font-bold tracking-widest">
+                    Abonament
+                  </span>
+                  <span className="inline-flex items-center bg-medical-600 text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide">
+                    -50%
+                  </span>
+                </div>
                 <div className="flex items-baseline gap-2 mt-2">
                   <span className="text-5xl font-black">990 zł</span>
                   <span className="text-muted-foreground">/ mies.</span>
                 </div>
                 <div className="mt-2 text-sm text-muted-foreground line-through">
-                  Standardowo 1290 zł / mies.
+                  Standardowo 1990 zł / mies.
                 </div>
               </div>
-              <div className="mb-8">
+              <div className="mb-6">
                 <div className="flex justify-between items-baseline mb-1">
                   <span className="font-semibold">Wdrożenie (jednorazowo)</span>
                   <span className="text-2xl font-bold text-medical-600">1490 zł</span>
                 </div>
                 <div className="text-sm text-muted-foreground line-through text-right">
-                  Standardowo 2490 zł
+                  Standardowo 3990 zł
                 </div>
+              </div>
+              <div className="mb-8 p-4 rounded-2xl bg-medical-50 border border-medical-100">
+                <p className="text-medical-700 font-bold text-center">
+                  Oszczędzasz 14 500 zł w pierwszym roku.
+                </p>
               </div>
               <a
                 href={CTA_HREF}
