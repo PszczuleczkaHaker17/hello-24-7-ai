@@ -15,12 +15,12 @@ function LandingPage() {
       <Nav />
       <main>
         <Hero />
+        <Demo />
         <LostPatients />
         <Problem />
         <Solution />
         <Implementation />
         <Benefits />
-        <Demo />
         <Pricing />
         <Faq />
         <FinalCta />
@@ -321,28 +321,108 @@ function Benefits() {
 
 /* ---------------- DEMO ---------------- */
 function Demo() {
+  const phonePoints = [
+    "Recepcja zamknięta — telefon odbiera asystentka AI",
+    "Pacjent pyta i umawia się na konkretny termin",
+    "Wizyta od razu w Google Calendar kliniki",
+  ];
+
+  const chatPoints = [
+    "Odpowiada na pytania o cennik i godziny",
+    "Zapisuje wizytę bez udziału recepcji",
+  ];
+
   return (
-    <section aria-labelledby="demo" className="py-24 lg:py-32 bg-surface border-y border-slate-100">
+    <section aria-labelledby="demo" className="py-16 lg:py-24 bg-surface border-y border-slate-100">
       <div className="max-w-5xl mx-auto px-6">
         <div className="text-center mb-12 lg:mb-14">
           <h2 id="demo" className="font-display text-3xl lg:text-4xl font-bold mb-4 tracking-tight">
-            Zobacz, jak to wygląda w praktyce
+            Zobacz, jak to działa w praktyce
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            To nie jest scenariusz reklamowy — to nagranie realnej rozmowy z asystentem,
-            dokładnie takiej, jaką odbędzie Twój przyszły pacjent.
+            To nie jest scenariusz reklamowy — to nagrania realnych rozmów z asystentem.
           </p>
         </div>
-       <div className="aspect-video bg-ink rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
-          <video
-            controls
-            preload="metadata"
-            playsInline
-            className="w-full h-full object-contain bg-black"
+
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Film 1 — Telefon */}
+          <div className="flex flex-col items-center">
+            <span className="text-xs font-bold uppercase tracking-wider text-medical-600 mb-3">
+              📞 Telefon
+            </span>
+            <h3 className="text-lg lg:text-xl font-bold text-center mb-6 max-w-sm">
+              Pacjent dzwoni po godzinach — AI odbiera i umawia wizytę
+            </h3>
+            <div className="w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/40 bg-ink">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+                className="w-full h-full object-contain bg-black"
+              >
+                <source src="/demo-telefon.mp4" type="video/mp4" />
+                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+              </video>
+            </div>
+            <ul className="mt-6 space-y-3 w-full max-w-sm">
+              {phonePoints.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm text-ink-soft">
+                  <span className="mt-0.5 size-5 shrink-0 rounded-full bg-medical-600 text-white grid place-items-center text-[10px] font-bold">
+                    ✓
+                  </span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Film 2 — Czat */}
+          <div className="flex flex-col items-center mt-16 lg:mt-0">
+            <span className="text-xs font-bold uppercase tracking-wider text-medical-600 mb-3">
+              💬 Czat na stronie
+            </span>
+            <h3 className="text-lg lg:text-xl font-bold text-center mb-6 max-w-sm">
+              Ten sam asystent odpowiada też na czacie na Twojej stronie
+            </h3>
+            <div className="w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/40 bg-ink">
+              <video
+                controls
+                playsInline
+                preload="none"
+                className="w-full h-full object-contain bg-black"
+              >
+                <source src="/Ai_klinika_final.mp4" type="video/mp4" />
+                Twoja przeglądarka nie obsługuje odtwarzania wideo.
+              </video>
+            </div>
+            <ul className="mt-6 space-y-3 w-full max-w-sm">
+              {chatPoints.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm text-ink-soft">
+                  <span className="mt-0.5 size-5 shrink-0 rounded-full bg-medical-600 text-white grid place-items-center text-[10px] font-bold">
+                    ✓
+                  </span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16 text-center">
+          <a
+            href="https://calendly.com/antekrog1/15min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
           >
-            <source src="/Ai_klinika_final.mp4" type="video/mp4" />
-            Twoja przeglądarka nie obsługuje odtwarzania wideo.
-          </video>
+            Umów 15-min demo na żywo
+          </a>
+          <p className="mt-4 text-sm text-muted-foreground max-w-md mx-auto">
+            W trakcie rozmowy nasza asystentka AI zadzwoni do Ciebie — sprawdzisz ją sam.
+          </p>
         </div>
       </div>
     </section>
