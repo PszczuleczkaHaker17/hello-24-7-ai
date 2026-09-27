@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const CTA_HREF = "https://calendly.com/antekrog1/15min";
+const CTA_HREF = "https://calendly.com/hello24/spotkanie";
 const CTA_LABEL = "Zarezerwuj 15 minut rozmowy";
 
 function LandingPage() {
