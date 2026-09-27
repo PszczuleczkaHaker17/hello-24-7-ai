@@ -413,7 +413,7 @@ function Demo() {
 
         <div className="mt-16 text-center">
           <a
-            href="https://calendly.com/antekrog1/15min"
+            href="https://calendly.com/hello24/spotkanie"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
