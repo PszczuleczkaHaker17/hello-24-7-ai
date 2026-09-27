@@ -618,7 +618,12 @@ function Footer() {
             Recepcja&nbsp;AI
           </span>
         </div>
-        <span>© {new Date().getFullYear()} AI Recepcja 24/7. Wszelkie prawa zastrzeżone.</span>
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+          <span>© {new Date().getFullYear()} AI Recepcja 24/7. Wszelkie prawa zastrzeżone.</span>
+          <Link to="/polityka-prywatnosci" className="hover:text-ink transition-colors">
+            Polityka prywatności
+          </Link>
+        </div>
       </div>
     </footer>
   );
