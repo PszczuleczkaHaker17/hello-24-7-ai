@@ -169,8 +169,8 @@ function Demo() {
               +
             </span>
           </summary>
-          <div className="px-6 pb-6 flex justify-center">
-            <div className="w-full max-w-[360px] aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/40 bg-ink">
+          <div className="px-4 sm:px-6 pb-6 flex justify-center">
+            <div className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-slate-300/40 bg-ink">
               <video
                 controls
                 playsInline
