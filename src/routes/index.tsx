@@ -1,13 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroReception from "@/assets/hero-reception.jpg";
 
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const CTA_HREF = "https://calendly.com/hello24/spotkanie";
-const CTA_LABEL = "Zarezerwuj 15 minut rozmowy";
+const CTA_HREF = "#kalendarz";
+const CTA_LABEL = "Sprawdź na żywo w 15 minut";
 
 function LandingPage() {
   return (
@@ -24,6 +23,7 @@ function LandingPage() {
         <Pricing />
         <Faq />
         <FinalCta />
+        <div id="kalendarz" className="scroll-mt-24" />
       </main>
       <Footer />
     </div>
@@ -33,25 +33,26 @@ function LandingPage() {
 /* ---------------- NAV ---------------- */
 function Nav() {
   return (
-    <nav className="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5">
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+        <a href="#top" className="flex items-center gap-2.5 shrink-0">
           <span className="relative inline-flex size-8 items-center justify-center rounded-lg bg-medical-600">
             <span className="size-3.5 rounded-full bg-white" />
             <span className="absolute inset-0 rounded-lg ring-4 ring-medical-600/20" />
           </span>
-          <span className="font-display font-bold text-lg tracking-tight uppercase">
-            Recepcja&nbsp;AI
-          </span>
+          <span className="font-display font-bold text-lg tracking-tight">Hello&nbsp;24/7</span>
         </a>
-        <a
-          href={CTA_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden sm:inline-flex items-center bg-ink text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-medical-700 transition-colors"
-        >
-          {CTA_LABEL}
-        </a>
+        <div className="flex items-center gap-3 sm:gap-5">
+          <a href="tel:+48882145145" className="font-semibold text-sm text-ink hover:text-medical-700 whitespace-nowrap">
+            +48 882 145 145
+          </a>
+          <a
+            href={CTA_HREF}
+            className="hidden sm:inline-flex items-center bg-ink text-white px-5 py-2.5 rounded-full font-semibold text-sm hover:bg-medical-700 transition-colors whitespace-nowrap"
+          >
+            Sprawdź na żywo
+          </a>
+        </div>
       </div>
     </nav>
   );
@@ -63,55 +64,38 @@ function Hero() {
     <header id="top" className="relative pt-16 lg:pt-24 pb-24 lg:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-[1.35fr_1fr] gap-12 items-center">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-medical-50 text-medical-700 text-xs font-semibold tracking-wide mb-8 border border-medical-100">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full rounded-full bg-medical-600 opacity-60 animate-ping" />
-              <span className="relative inline-flex rounded-full size-2 bg-medical-600" />
-            </span>
-            Oferta wdrożeniowa dla pierwszych 3 klinik
-          </div>
-
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6">
-            Nie trać pacjentów przez <span className="text-medical-600">nieodebrane telefony.</span>
+            Telefon w Twojej klinice odebrany zawsze.{" "}
+            <span className="text-medical-600">Także po godzinach i gdy recepcja jest zajęta.</span>
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-            AI Recepcja 24/7 automatycznie odpowiada pacjentom, przekazuje informacje o usługach
-            i pomaga umawiać wizyty — nawet gdy recepcja jest zajęta lub zamknięta.
+            Gdy recepcja nie odbiera, połączenie przejmuje asystentka głosowa AI. Odpowiada na pytania
+            o ceny i godziny, zapisuje pacjenta na wizytę i wpisuje ją do kalendarza kliniki. Działa na
+            Twoim obecnym numerze.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-            <a
-              href={CTA_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
-            >
-              {CTA_LABEL}
-            </a>
-          </div>
-
-          <p className="mt-5 text-sm text-muted-foreground italic">
-            3 pierwsze kliniki otrzymują wdrożenie w specjalnej cenie.
+          <a
+            href={CTA_HREF}
+            className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
+          >
+            {CTA_LABEL}
+          </a>
+          <p className="mt-4 text-sm text-muted-foreground max-w-md">
+            Podczas rozmowy asystentka zadzwoni na Twój telefon. Spróbujesz umówić się jak pacjent.
+          </p>
+          <p className="mt-8 text-sm font-medium text-ink/80">
+            Bez zmiany numeru · Bez umowy długoterminowej · Start w 5 dni roboczych
           </p>
         </div>
 
-        <div className="relative hidden lg:block">
-          <div className="absolute -inset-6 bg-medical-50 rounded-[2rem] -z-10" />
-          <img
-            src={heroReception}
-            alt="Nowoczesna recepcja kliniki"
-            width={800}
-            height={1200}
-            className="rounded-[1.5rem] w-full h-[520px] object-cover shadow-2xl shadow-slate-300/40"
-          />
-          <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl border border-slate-100 p-4 flex items-center gap-3 w-64">
-            <span className="size-10 rounded-full bg-medical-50 grid place-items-center text-medical-600 font-bold">
-              24/7
-            </span>
-            <div>
-              <div className="text-sm font-semibold">Odbieramy zawsze</div>
-              <div className="text-xs text-muted-foreground">Nocą, w weekendy, w święta</div>
-            </div>
+        <div className="relative flex justify-center">
+          <div className="absolute inset-x-8 -inset-y-6 bg-medical-50 rounded-[2rem] -z-10" />
+          <div className="w-full max-w-[300px] rounded-[2rem] border-[6px] border-ink bg-ink overflow-hidden shadow-2xl shadow-slate-400/40">
+            <img
+              src="/demo-telefon-poster.jpg"
+              alt="Kadr z nagrania rozmowy z asystentką głosową AI"
+              className="w-full aspect-[9/16] object-cover"
+            />
           </div>
         </div>
       </div>
@@ -132,7 +116,7 @@ function LostPatients() {
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
           Pacjenci często dzwonią po godzinach pracy albo wtedy, gdy recepcja jest zajęta. AI
-          Recepcja 24/7 odpowiada natychmiast i pomaga przeprowadzić ich do rezerwacji wizyty.
+          Hello 24/7 odpowiada natychmiast i pomaga przeprowadzić ich do rezerwacji wizyty.
         </p>
       </div>
     </section>
@@ -413,12 +397,10 @@ function Demo() {
 
         <div className="mt-16 text-center">
           <a
-            href="https://calendly.com/hello24/spotkanie"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={CTA_HREF}
             className="inline-flex items-center justify-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all"
           >
-            Umów 15-min demo na żywo
+            {CTA_LABEL}
           </a>
           <p className="mt-4 text-sm text-muted-foreground max-w-md mx-auto">
             W trakcie rozmowy nasza asystentka AI zadzwoni do Ciebie — sprawdzisz ją sam.
@@ -509,8 +491,6 @@ function Pricing() {
               </div>
               <a
                 href={CTA_HREF}
-                target="_blank"
-               rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center bg-medical-600 text-white py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 transition-all"
               >
                 {CTA_LABEL}
@@ -596,8 +576,6 @@ function FinalCta() {
         </p>
         <a
           href={CTA_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
           className="inline-flex items-center justify-center bg-ink text-white px-8 sm:px-10 py-5 rounded-2xl font-bold text-lg sm:text-xl hover:bg-medical-600 transition-all shadow-xl shadow-ink/10"
         >
           {CTA_LABEL}
@@ -615,11 +593,11 @@ function Footer() {
         <div className="flex items-center gap-2">
           <span className="size-2 rounded-full bg-medical-600" />
           <span className="font-display font-bold tracking-tight uppercase text-ink">
-            Recepcja&nbsp;AI
+            Hello&nbsp;24/7
           </span>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-          <span>© {new Date().getFullYear()} AI Recepcja 24/7. Wszelkie prawa zastrzeżone.</span>
+          <span>© {new Date().getFullYear()} Hello 24/7. Wszelkie prawa zastrzeżone.</span>
           <Link to="/polityka-prywatnosci" className="hover:text-ink transition-colors">
             Polityka prywatności
           </Link>

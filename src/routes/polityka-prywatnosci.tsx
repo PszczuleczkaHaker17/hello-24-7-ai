@@ -3,13 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/polityka-prywatnosci")({
   head: () => ({
     meta: [
-      { title: "Polityka prywatności — AI Recepcja 24/7" },
+      { title: "Polityka prywatności — Hello 24/7" },
       {
         name: "description",
         content:
           "Polityka prywatności Hello 24/7 — jakie dane zbieramy, w jakim celu je przetwarzamy i jakie przysługują Ci prawa.",
       },
-      { property: "og:title", content: "Polityka prywatności — AI Recepcja 24/7" },
+      { property: "og:title", content: "Polityka prywatności — Hello 24/7" },
       {
         property: "og:description",
         content:
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/polityka-prywatnosci")({
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Polityka prywatności — AI Recepcja 24/7" },
+      { name: "twitter:title", content: "Polityka prywatności — Hello 24/7" },
       {
         name: "twitter:description",
         content:
