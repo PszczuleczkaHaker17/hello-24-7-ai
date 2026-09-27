@@ -1,6 +1,6 @@
 ## Cel
 
-Zbudować single-page landing "AI Recepcja 24/7" w wybranym kierunku **Clinical Precision** (granat + turkus, biała przestrzeń, medyczny SaaS) z copy dostosowanym pod właścicieli prywatnych klinik i konwersją na jeden CTA: **"Zarezerwuj 15 minut rozmowy"**.
+Zbudować single-page landing "Hello 24/7" w wybranym kierunku **Clinical Precision** (granat + turkus, biała przestrzeń, medyczny SaaS) z copy dostosowanym pod właścicieli prywatnych klinik i konwersją na jeden CTA: **"Zarezerwuj 15 minut rozmowy"**.
 
 Ton: profesjonalna usługa B2B dla klinik premium. Bez słów "rewolucyjna AI", "przyszłość medycyny", "inteligentny system". Nacisk na: więcej obsłużonych pacjentów, mniej utraconych zapytań, odciążona recepcja, automatyczne umawianie wizyt.
 
@@ -9,7 +9,7 @@ Ton: profesjonalna usługa B2B dla klinik premium. Bez słów "rewolucyjna AI", 
 1. **Nav** — logo + jeden przycisk "Zarezerwuj 15 minut rozmowy"
 2. **Hero** — nowy nagłówek "Nie trać pacjentów przez nieodebrane telefony." + podtytuł B2B + CTA + microcopy "3 pierwsze kliniki otrzymują wdrożenie w specjalnej cenie." + badge "Oferta wdrożeniowa dla pierwszych 3 klinik" (zamiast starego "ostatnie 3 miejsca"). Zdjęcie recepcji kliniki po prawej.
 3. **Nowa sekcja pod-hero** — "Każdy nieodebrany telefon może oznaczać utraconego pacjenta." + krótki tekst o dzwoniących po godzinach.
-4. **Problem** — statystyka 15–30% utraconych połączeń, koszt w zł, "dzwoni do następnej kliniki".
+4. **Problem** — statystyka utraconych połączeń, koszt w zł, "dzwoni do następnej kliniki".
 5. **Rozwiązanie** — 3 karty: 24/7, umawianie w Google Calendar, przekazywanie trudnych spraw. Copy skierowane do właściciela ("więcej obsłużonych pacjentów", "mniej pracy recepcji").
 6. **Wdrożenie w 5 dni** — 3 kroki (Rozmowa 15 min → Konfiguracja 3–5 dni → Start).
 7. **Korzyści dla kliniki** — 5 punktów (więcej wizyt, odciążona recepcja, obsługa poza godzinami, brak kosztu etatu, spójna obsługa).

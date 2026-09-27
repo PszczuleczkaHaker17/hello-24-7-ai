@@ -81,19 +81,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni.",
+          "Asystentka AI odbiera telefony w Twojej klinice, gdy recepcja nie może — odpowiada na pytania i zapisuje wizyty. Działa na obecnym numerze. Start w 5 dni.",
       },
       { name: "author", content: "Hello 24/7" },
       { property: "og:title", content: "Hello 24/7 — AI recepcja telefoniczna dla klinik" },
       {
         property: "og:description",
         content:
-          "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni.",
+          "Asystentka AI odbiera telefony w Twojej klinice, gdy recepcja nie może — odpowiada na pytania i zapisuje wizyty. Działa na obecnym numerze. Start w 5 dni.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Hello 24/7 — AI recepcja telefoniczna dla klinik" },
-      { name: "twitter:description", content: "AI odbiera telefony w Twojej klinice 24/7, odpowiada na pytania o cennik i godziny, umawia wizyty w Google Calendar. Wdrożenie w 5 dni." },
+      { name: "twitter:description", content: "Asystentka AI odbiera telefony w Twojej klinice, gdy recepcja nie może — odpowiada na pytania i zapisuje wizyty. Działa na obecnym numerze. Start w 5 dni." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
     ],
