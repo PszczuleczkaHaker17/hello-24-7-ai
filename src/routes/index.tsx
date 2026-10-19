@@ -471,7 +471,7 @@ function Pricing() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-14">
           <h2 id="pricing" className="font-display text-3xl lg:text-4xl font-bold tracking-tight text-balance">
-            Jedna cena. Bez pakietów i dopłat za funkcje.
+            Jedna cena. Wszystkie funkcje w abonamencie.
           </h2>
         </div>
 
@@ -491,6 +491,10 @@ function Pricing() {
               <p className="mt-2 text-medical-100 font-medium">ta cena zostaje z Tobą na stałe</p>
               <p className="mt-6 text-xl font-bold">
                 1490 zł <span className="font-normal text-slate-300">— wdrożenie, jednorazowo</span>
+              </p>
+              <p className="mt-4 text-sm text-medical-100 bg-white/5 border border-medical-600/25 rounded-xl px-4 py-3 leading-relaxed">
+                <span className="font-bold">500 minut</span> rozmów w abonamencie, każda kolejna minuta
+                0,90 zł
               </p>
               <p className="mt-2 text-xs text-slate-400">ceny netto</p>
             </div>
@@ -524,8 +528,39 @@ function Pricing() {
           </div>
         </div>
 
-        <div className="mt-8 text-center text-sm text-muted-foreground space-y-1">
-          <p>Po zakończeniu programu: 1990 zł/mies. + 3990 zł wdrożenie.</p>
+        <div className="mt-6 rounded-[2rem] border border-slate-200 bg-surface p-6 sm:p-10">
+          <div className="flex flex-wrap items-start justify-between gap-8">
+            <div>
+              <span className="text-muted-foreground text-xs uppercase font-bold tracking-widest">
+                Cennik standardowy
+              </span>
+              <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className="font-display text-4xl sm:text-5xl font-extrabold">1990 zł</span>
+                <span className="text-lg text-slate-500">/ mies.</span>
+              </div>
+              <p className="mt-3 text-lg font-bold">
+                3990 zł <span className="font-normal text-slate-500">— wdrożenie, jednorazowo</span>
+              </p>
+              <p className="mt-4 inline-block text-sm text-ink-soft bg-white border border-slate-200 rounded-xl px-4 py-3 leading-relaxed">
+                <span className="font-bold">1000 minut</span> rozmów w abonamencie, każda kolejna
+                minuta 0,90 zł
+              </p>
+            </div>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              Po zakończeniu programu startowego przechodzisz na te warunki. Bez umowy
+              długoterminowej — wypowiedzenie z miesięcznym wyprzedzeniem.
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-10 max-w-3xl mx-auto text-center text-base leading-relaxed text-ink-soft">
+          Asystentka odbiera telefony, których nie odbierze recepcja — po godzinach pracy, w weekendy
+          i gdy linia jest zajęta. Nie zastępuje recepcji i nie przejmuje numeru głównego gabinetu.
+          Ustawiamy przekierowanie warunkowe, więc w godzinach pracy wszystko działa tak jak
+          dotychczas.
+        </p>
+
+        <div className="mt-6 text-center text-sm text-muted-foreground">
           <p>Sieć placówek? Napisz — przygotujemy wycenę.</p>
         </div>
       </div>
