@@ -34,7 +34,9 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+import { ErrorComponentProps } from "@tanstack/react-router";
+
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -94,12 +96,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Hello 24/7 — AI recepcja telefoniczna dla klinik" },
       { name: "twitter:description", content: "Asystentka AI odbiera telefony w Twojej klinice, gdy recepcja nie może — odpowiada na pytania i zapisuje wizyty. Działa na obecnym numerze. Start w 5 dni." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/eb242646-2724-4316-9d98-db3160c44a93/id-preview-bca43e5e--85952163-6e61-471d-b6b4-59657e126050.lovable.app-1783959895188.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
