@@ -269,6 +269,10 @@ function HowItWorks() {
         </ol>
 
         <p className="mt-12 text-center text-ink-soft font-medium max-w-2xl mx-auto leading-relaxed">
+          Recepcja potwierdza nowe wizyty telefonicznie następnego dnia rano — to zajmuje kilka minut
+          i daje pewność, że pacjent się stawi.
+        </p>
+        <p className="mt-4 text-center text-ink-soft font-medium max-w-2xl mx-auto leading-relaxed">
           Nie instalujesz programu. Nie zmieniasz numeru ani operatora. Przekierowanie ustawiamy razem
           w 10 minut.
         </p>
@@ -479,10 +483,10 @@ function Pricing() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-medical-600/15 text-medical-100 border border-medical-600/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
-                Program startowy · wolne miejsca: 3
+                Program startowy
               </div>
               <p className="text-slate-300 mb-6 leading-relaxed">
-                Dla pierwszych 3 klinik, w zamian za opinię i opis wdrożenia:
+                Przyjmuję trzy pierwsze kliniki na tych warunkach, w zamian za opinię i opis wdrożenia:
               </p>
               <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                 <span className="font-display text-5xl sm:text-6xl font-extrabold">990 zł</span>
@@ -593,7 +597,7 @@ function Faq() {
     },
     {
       q: "Pracujemy w innym systemie niż Google Calendar. Czy to zadziała?",
-      a: "Tak. Wizyty od asystentki trafiają do osobnego kalendarza Google, który recepcja ma otwarty obok swojego systemu. Integrację z Twoim systemem gabinetowym omawiamy indywidualnie.",
+      a: "Przed wdrożeniem sprawdzam, czy Wasz system gabinetowy udostępnia integrację — jeśli tak, wizyty trafiają bezpośrednio do niego. Większość systemów w Polsce tego nie udostępnia. Wtedy asystentka rezerwuje wyłącznie w oknach czasowych, które sami wydzielicie, w osobnym kalendarzu. Dzięki temu nie ma ryzyka, że nadpisze termin wpisany przez recepcję. Rano recepcja potwierdza wizytę telefonicznie i wpisuje ją u siebie.",
     },
     {
       q: "Co z RODO?",
