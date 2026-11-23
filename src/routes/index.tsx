@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { Phone } from "lucide-react";
+import { CallAnimation } from "@/components/CallAnimation";
 
 export const Route = createFileRoute("/")({
   component: LandingPage,
@@ -9,12 +11,16 @@ const CTA_HREF = "#kalendarz";
 const CTA_LABEL = "Sprawdź na żywo w 15 minut";
 const PHONE_HREF = "tel:+48882145145";
 const PHONE_LABEL = "+48 882 145 145";
+const DEMO_PHONE_HREF = "tel:+48525275069";
+const DEMO_PHONE_LABEL = "52 527 50 69";
 const EMAIL = "kontakt@gethello247.com";
 const CALENDLY_URL = "https://calendly.com/hello24/spotkanie?hide_gdpr_banner=1";
 const CALENDLY_SCRIPT_SRC = "https://assets.calendly.com/assets/external/widget.js";
 
 const CTA_CLASS =
   "inline-flex items-center justify-center text-center bg-medical-600 text-white px-7 py-4 rounded-2xl font-bold text-base sm:text-lg hover:bg-medical-700 shadow-xl shadow-medical-600/20 transition-all";
+const DEMO_BTN_CLASS =
+  "inline-flex w-full sm:w-auto items-center justify-center text-center gap-2 border-2 border-medical-600 text-medical-700 px-6 py-3.5 rounded-2xl font-bold hover:bg-medical-50 transition-colors";
 
 function LandingPage() {
   return (
@@ -85,8 +91,8 @@ function Hero() {
   return (
     <header id="top" className="relative pt-16 lg:pt-24 pb-24 lg:pb-32 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-[1.35fr_1fr] gap-12 items-center">
-        <div className="max-w-2xl">
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6">
+        <div>
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-6 max-w-2xl">
             Telefon w Twojej klinice odebrany zawsze.{" "}
             <span className="text-medical-600">Także po godzinach i gdy recepcja jest zajęta.</span>
           </h1>
@@ -96,31 +102,37 @@ function Hero() {
             Twoim obecnym numerze.
           </p>
 
-          <a href={CTA_HREF} className={CTA_CLASS}>
-            {CTA_LABEL}
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a href={CTA_HREF} className={`${CTA_CLASS} w-full sm:w-auto`}>
+              {CTA_LABEL}
+            </a>
+            <a href={DEMO_PHONE_HREF} className={DEMO_BTN_CLASS}>
+              <Phone className="size-4 shrink-0" aria-hidden="true" />
+              <span>
+                Zadzwoń do asystentki:{" "}
+                <span className="whitespace-nowrap">{DEMO_PHONE_LABEL}</span>
+              </span>
+            </a>
+          </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
-            Podczas rozmowy asystentka zadzwoni na Twój telefon. Spróbujesz umówić się jak pacjent.
+            Zadzwoń teraz i umów się jak pacjent — odbierze asystentka demo. Albo umów 15 min, a
+            zadzwoni do Ciebie.
           </p>
           <p className="mt-8 text-sm font-medium text-ink/80">
             Bez zmiany numeru · Bez umowy długoterminowej · Start w 5 dni roboczych
           </p>
         </div>
 
-        <div className="relative flex justify-center">
-          <div className="absolute inset-x-8 -inset-y-6 bg-medical-50 rounded-[2rem] -z-10" />
-          <div className="w-full max-w-[300px] rounded-[2rem] border-[6px] border-ink bg-ink overflow-hidden shadow-2xl shadow-slate-400/40">
-            <video
-              controls
-              playsInline
-              preload="metadata"
-              poster="/demo-telefon-poster.jpg"
-              className="w-full aspect-[9/16] object-contain bg-black"
-            >
-              <source src="/demo-telefon.mp4" type="video/mp4" />
-              Twoja przeglądarka nie obsługuje odtwarzania wideo.
-            </video>
+        <div className="flex flex-col items-center">
+          <div className="relative flex justify-center w-full">
+            <div className="absolute inset-x-8 -inset-y-6 bg-medical-50 rounded-[2rem] -z-10" />
+            <div className="w-full max-w-[300px] rounded-[2rem] border-[6px] border-ink bg-ink overflow-hidden shadow-2xl shadow-slate-400/40">
+              <CallAnimation />
+            </div>
           </div>
+          <p className="mt-8 text-xs text-muted-foreground text-center max-w-[300px]">
+            Animacja poglądowa. Prawdziwe nagranie rozmowy — niżej.
+          </p>
         </div>
       </div>
     </header>
@@ -162,6 +174,21 @@ function Demo() {
           ))}
         </ol>
 
+        <div className="mt-10 flex justify-center">
+          <div className="w-full max-w-[300px] rounded-[2rem] border-[6px] border-ink bg-ink overflow-hidden shadow-2xl shadow-slate-400/40">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/demo-telefon-poster.jpg"
+              className="w-full aspect-[9/16] object-contain bg-black"
+            >
+              <source src="/demo-telefon.mp4" type="video/mp4" />
+              Twoja przeglądarka nie obsługuje odtwarzania wideo.
+            </video>
+          </div>
+        </div>
+
         <details className="group mt-8 rounded-2xl border border-slate-200 bg-white">
           <summary className="list-none flex justify-between items-start gap-6 cursor-pointer p-6 font-semibold text-ink">
             Ta sama asystentka może odpowiadać na czacie na Twojej stronie — zobacz nagranie
@@ -185,9 +212,15 @@ function Demo() {
         </details>
 
         <div className="mt-14 text-center">
-          <a href={CTA_HREF} className={CTA_CLASS}>
-            {CTA_LABEL}
-          </a>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href={CTA_HREF} className={`${CTA_CLASS} w-full sm:w-auto`}>
+              {CTA_LABEL}
+            </a>
+            <a href={DEMO_PHONE_HREF} className={DEMO_BTN_CLASS}>
+              <Phone className="size-4 shrink-0" aria-hidden="true" />
+              Zadzwoń do asystentki demo
+            </a>
+          </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-md mx-auto">
             Nagranie to jedno. Najlepiej przekonasz się, gdy asystentka zadzwoni do Ciebie.
           </p>
@@ -656,6 +689,15 @@ function FinalCta() {
           15 minut. Pokażę, jak działa asystentka, a potem zadzwoni ona na Twój telefon — spróbujesz
           umówić się jak pacjent. Jeśli to nie dla Twojej kliniki, powiem to wprost.
         </p>
+        <div className="mt-8 flex flex-col items-center">
+          <a href={DEMO_PHONE_HREF} className={DEMO_BTN_CLASS}>
+            <Phone className="size-4 shrink-0" aria-hidden="true" />
+            Zadzwoń teraz: {DEMO_PHONE_LABEL}
+          </a>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Demo działa 24/7. Asystentka przedstawia się jako AI.
+          </p>
+        </div>
       </div>
     </section>
   );
